@@ -31,6 +31,15 @@ final class ReleasesTests: XCTestCase {
                     XCTAssertNil(release.tarballURL)
                     XCTAssertNil(release.zipballURL)
                     XCTAssertNil(release.publishedAt)
+
+                    XCTAssertEqual(release.assets.count, 1)
+                    if let asset = release.assets.first {
+                        XCTAssertEqual(asset.name, "example.zip")
+                        XCTAssertEqual(asset.label, "short description")
+                        XCTAssertEqual(asset.state, .uploaded)
+                        XCTAssertEqual(asset.size, 1024)
+                        XCTAssertEqual(asset.downloadCount, 42)
+                    }
                 } else {
                     XCTFail("Failed to unwrap `releases.first`")
                 }
@@ -44,6 +53,15 @@ final class ReleasesTests: XCTestCase {
                     XCTAssertEqual(release.tarballURL?.absoluteString, "https://api.github.com/repos/octocat/Hello-World/tarball/v1.0.0")
                     XCTAssertEqual(release.zipballURL?.absoluteString, "https://api.github.com/repos/octocat/Hello-World/zipball/v1.0.0")
                     XCTAssertEqual(release.publishedAt, Date(timeIntervalSince1970: 1_361_993_732.0))
+
+                    XCTAssertEqual(release.assets.count, 1)
+                    if let asset = release.assets.first {
+                        XCTAssertEqual(asset.name, "example.zip")
+                        XCTAssertEqual(asset.label, "short description")
+                        XCTAssertEqual(asset.state, .uploaded)
+                        XCTAssertEqual(asset.size, 1024)
+                        XCTAssertEqual(asset.downloadCount, 42)
+                    }
                 } else {
                     XCTFail("Failed to unwrap `releases.last`")
                 }
@@ -92,6 +110,15 @@ final class ReleasesTests: XCTestCase {
             XCTAssertNil(release.tarballURL)
             XCTAssertNil(release.zipballURL)
             XCTAssertNil(release.publishedAt)
+
+            XCTAssertEqual(release.assets.count, 1)
+            if let asset = release.assets.first {
+                XCTAssertEqual(asset.name, "example.zip")
+                XCTAssertEqual(asset.label, "short description")
+                XCTAssertEqual(asset.state, .uploaded)
+                XCTAssertEqual(asset.size, 1024)
+                XCTAssertEqual(asset.downloadCount, 42)
+            }
         } else {
             XCTFail("Failed to unwrap `releases.first`")
         }
@@ -105,6 +132,15 @@ final class ReleasesTests: XCTestCase {
             XCTAssertEqual(release.tarballURL?.absoluteString, "https://api.github.com/repos/octocat/Hello-World/tarball/v1.0.0")
             XCTAssertEqual(release.zipballURL?.absoluteString, "https://api.github.com/repos/octocat/Hello-World/zipball/v1.0.0")
             XCTAssertEqual(release.publishedAt, Date(timeIntervalSince1970: 1_361_993_732.0))
+
+            XCTAssertEqual(release.assets.count, 1)
+            if let asset = release.assets.first {
+                XCTAssertEqual(asset.name, "example.zip")
+                XCTAssertEqual(asset.label, "short description")
+                XCTAssertEqual(asset.state, .uploaded)
+                XCTAssertEqual(asset.size, 1024)
+                XCTAssertEqual(asset.downloadCount, 42)
+            }
         } else {
             XCTFail("Failed to unwrap `releases.last`")
         }
@@ -131,6 +167,15 @@ final class ReleasesTests: XCTestCase {
         XCTAssertNotNil(release.tarballURL)
         XCTAssertNotNil(release.zipballURL)
         XCTAssertNotNil(release.publishedAt)
+
+        XCTAssertEqual(release.assets.count, 1)
+        if let asset = release.assets.first {
+            XCTAssertEqual(asset.name, "example.zip")
+            XCTAssertEqual(asset.label, "short description")
+            XCTAssertEqual(asset.state, .uploaded)
+            XCTAssertEqual(asset.size, 1024)
+            XCTAssertEqual(asset.downloadCount, 42)
+        }
     }
     #endif
 
@@ -178,6 +223,15 @@ final class ReleasesTests: XCTestCase {
                 XCTAssertEqual(release.tarballURL?.absoluteString, "https://api.github.com/repos/octocat/Hello-World/tarball/v1.0.0")
                 XCTAssertEqual(release.zipballURL?.absoluteString, "https://api.github.com/repos/octocat/Hello-World/zipball/v1.0.0")
                 XCTAssertEqual(release.publishedAt, Date(timeIntervalSince1970: 1361993732.0))
+
+                XCTAssertEqual(release.assets.count, 1)
+                if let asset = release.assets.first {
+                    XCTAssertEqual(asset.name, "example.zip")
+                    XCTAssertEqual(asset.label, "short description")
+                    XCTAssertEqual(asset.state, .uploaded)
+                    XCTAssertEqual(asset.size, 1024)
+                    XCTAssertEqual(asset.downloadCount, 42)
+                }
             case let .failure(error):
                 XCTAssert(false, "Endpoint failed with error \(error)")
             }

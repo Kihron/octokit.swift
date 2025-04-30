@@ -30,6 +30,7 @@ public struct Release: Codable {
     public let prerelease: Bool
     public let createdAt: Date
     public let publishedAt: Date?
+    public let assets: [Asset]
     public let author: User
 
     public init(id: Int,
@@ -47,6 +48,7 @@ public struct Release: Codable {
                 prerelease: Bool,
                 createdAt: Date,
                 publishedAt: Date?,
+                assets: [Asset],
                 author: User) {
         self.id = id
         self.url = url
@@ -63,11 +65,12 @@ public struct Release: Codable {
         self.prerelease = prerelease
         self.createdAt = createdAt
         self.publishedAt = publishedAt
+        self.assets = assets
         self.author = author
     }
 
     enum CodingKeys: String, CodingKey {
-        case id, url, name, body, draft, prerelease, author
+        case id, url, name, body, draft, prerelease, assets, author
 
         case htmlURL = "html_url"
         case assetsURL = "assets_url"
